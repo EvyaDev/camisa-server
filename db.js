@@ -6,6 +6,7 @@ const db = mysql.createPool({
     password: 'P*E.GCET&{&n',// הסיסמה שלך
     database: 'loccacoi_camisa-db',    // שם מסד הנתונים
     port: 3306,                  // הפורט (בדרך כלל 3306 ל-MySQL)
+    connectTimeout: 10000,  // הגדרת timeout של 10 שניות
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
