@@ -16,15 +16,14 @@ function updateOrder(req, res) {
 }
 
 function deleteOrderById(req, res) {
-    con.query("DELETE FROM `orders` WHERE `order`.`id` = ?", [req.params.id],
+    con.query("DELETE FROM `orders` WHERE `id` = ?", [req.params.id],
         (err) => {
-
             if (err) {
-                throw err;
+                return res.status(500).send({ error: 'Something went wrong!' });
             }
-            res.send();
+            res.status(200).send({ message: 'Order deleted successfully!' });
         }
-    )
+    );
 }
 
 exports.updateOrder = updateOrder;

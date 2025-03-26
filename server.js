@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const con = require("./dbConnection"); // חיבור למסד נתונים
+const app = express();
+app.use(express.json());
+const fs = require("fs");
+const path = require("path");
+const morgan = require("morgan");
+
 
 const PORT = process.env.PORT || 4000;
-
-const app = express();
-// app.use(bodyParser.json());
 
 app.use(cors({
     origin: true,
@@ -26,8 +28,9 @@ app.get('/orders', (req, res) => {
         res.send(result);
     });
 });
-app.use(express.json());
 
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'methods.log'), { flags: 'a' })
+app.use(morgan(':method - url: ":url" status: :status | (:response-time ms) [:date[web]]', { stream: accessLogStream }))
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
