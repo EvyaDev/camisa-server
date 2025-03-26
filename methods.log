@@ -8,3 +8,4 @@ POST - url: "/files/upload" status: 404 | (4.979 ms) [Wed, 26 Mar 2025 14:41:52 
 POST - url: "/files/upload" status: 500 | (12.071 ms) [Wed, 26 Mar 2025 14:46:16 GMT]
 POST - url: "/files/upload" status: 500 | (8.298 ms) [Wed, 26 Mar 2025 14:46:28 GMT]
 POST - url: "/files/upload" status: 500 | (1.978 ms) [Wed, 26 Mar 2025 14:46:35 GMT]
+POST - url: "/files/upload" status: 200 | (77.584 ms) [Wed, 26 Mar 2025 14:46:53 GMT]
